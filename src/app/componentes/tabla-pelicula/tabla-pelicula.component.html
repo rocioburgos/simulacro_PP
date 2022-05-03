@@ -1,0 +1,10 @@
+<ul class="profesores">
+  <li  *ngFor="let pelicula of listadoPeliculas">
+   
+      <img   width="80px" [src]="pelicula.fotoPelicula" >
+      <span  >{{pelicula.Nombre}}</span>
+      <button type="button" class=" btn btn-info btn-circle" (click)="mostrarDetallePelicula(pelicula)">
+      </button>
+ 
+  </li>
+</ul>

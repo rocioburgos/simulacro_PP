@@ -1,0 +1,12 @@
+<div class="form-group">
+  <label for="country">Seleccione un pais</label>
+  <select class="form-control form-control-lg" id="country" 
+  [(ngModel)]="opcionSeleccionado" (change)="capturar()"
+  
+  >
+    <option value="">Elija...</option>
+    <option  [value]="pais.name.common" *ngFor="let pais of paises">
+      {{pais.name.common}}
+    </option>
+  </select>
+</div>

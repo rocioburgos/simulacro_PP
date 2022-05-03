@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="py-5 text-center"> 
+      <h2>Alta usuario</h2>
+      <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    </div>
+  
+    <div class="alert alert-success" role="alert" *ngIf="registroOk">
+      Se guardo el actor con exito!
+     </div>
+     <div class="alert alert-danger" role="alert" *ngIf="registroOk== false">
+       No se pudo guardar el actor
+     </div>
+    <div class="row">
+      <div class="col-md-5 order-md-2 mb-4"> 
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Pais</span> 
+        </h4> 
+        <div class="col-md-10 mb-3"> 
+            <app-tabla-paises (onPaisElegido)="paisSeleciconado($event)"></app-tabla-paises> 
+        </div> 
+      </div>
+
+
+      <div class="col-md-7 order-md-1">
+        
+        <h4 class="mb-3">Datos actor</h4>
+        <form class="needs-validation"  method="post" (ngSubmit)="onRegistro()" >
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName">Nombre</label>
+              <input type="text" class="form-control" id="firstName" [(ngModel)]="nombre"  [ngModelOptions]="{standalone: true}">
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName">Apellido</label>
+              <input type="text" class="form-control" id="lastName" [(ngModel)]="apellido"  [ngModelOptions]="{standalone: true}">
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="username">Username</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input type="text" class="form-control" id="username" [(ngModel)]="username"  [ngModelOptions]="{standalone: true}"> 
+              <div class="invalid-feedback" style="width: 100%;">
+                Your username is required.
+              </div>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="email">Email <span class="text-muted">(Optional)</span></label>
+            <input type="email" class="form-control" id="email"   [(ngModel)]="email"  [ngModelOptions]="{standalone: true}">
+            <div class="invalid-feedback">
+              Please enter a valid email address for shipping updates.
+            </div>
+          </div> 
+          <hr class="mb-4"> 
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Dar de alta</button>
+          
+        </form>
+      </div>
+    </div>
+ 
+  </div>
