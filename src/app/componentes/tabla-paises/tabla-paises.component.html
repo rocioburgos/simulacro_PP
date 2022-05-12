@@ -5,8 +5,15 @@
   
   >
     <option value="">Elija...</option>
-    <option  [value]="pais.name.common" *ngFor="let pais of paises">
+    <option  [value]="pais.name.common"
+     *ngFor="let pais of paises " 
+     data-style="background-image:url(https://cdn.countryflags.com/thumbs/portugal/flag-800.png);">
       {{pais.name.common}}
     </option>
   </select>
+
+
+
+  <br>
+  <img id="pic-1"   [src]="banderaElegida">
 </div>

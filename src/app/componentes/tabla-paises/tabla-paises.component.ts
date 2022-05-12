@@ -8,25 +8,25 @@ import { PaisesService } from 'src/app/servicios/paises.service';
   styleUrls: ['./tabla-paises.component.css']
 })
 export class TablaPaisesComponent implements OnInit {
-  
-paises: Pais[]=[];
-opcionSeleccionado:string='';
 
-@Output() onPaisElegido:EventEmitter<string>= new EventEmitter();
-  constructor(private paisesSrv:PaisesService) { }
+  paises: Pais[] = [];
+  opcionSeleccionado: string = '';
+  banderaElegida: string = '';
+  @Output() onPaisElegido: EventEmitter<string> = new EventEmitter();
+  constructor(private paisesSrv: PaisesService) { }
 
-  ngOnInit(): void { 
-   this.paisesSrv.getAllCountries().then((res)=>{
-    this.paises= res;   
-     
-  });
-   
-  }
+  ngOnInit(): void {
+    this.paisesSrv.getAllCountries().subscribe((res) => {
+      this.paises = res;
 
-  capturar(){
+    });
+
+  } 
+
+  capturar() { 
     this.onPaisElegido.emit(this.opcionSeleccionado);
-    console.log( this.opcionSeleccionado);
+    console.log(this.opcionSeleccionado);
   }
- 
- 
+
+
 }
