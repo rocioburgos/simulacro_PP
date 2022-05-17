@@ -1,1 +1,10 @@
-<p>listado-actor works!</p>
+<ul class="profesores">
+    <li  *ngFor="let actor of actores">
+        <span  >{{actor.nombre}},{{actor.apellido}}- {{actor.doc_id}} </span>
+        <button type="button" class=" btn btn-success btn-circle" (click)="mostrarPeliculas(actor)">
+        Ver peliculas</button>
+        <button type="button" class=" btn btn-info btn-circle" (click)="mostrarDetalleActor(actor)">
+        Ver detalle del actor</button>
+   
+    </li>
+  </ul>

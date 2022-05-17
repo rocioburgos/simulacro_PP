@@ -1,3 +1,4 @@
+import { Actor } from "./actor";
 import { eTipo } from "./eTipo";
 
 export class Pelicula {
@@ -9,9 +10,10 @@ export class Pelicula {
   cantidadPublico:number;
   fotoPelicula:string;
 
+  actor?:Actor;
   constructor(
       id:number, nombre:string, tipo:eTipo, fechaEstreno:string, 
-    cantPublico:number, fotoPelicula:string){
+    cantPublico:number, fotoPelicula:string ){
       this.id=id;
       this.Nombre= nombre;
       this.tipo= tipo;

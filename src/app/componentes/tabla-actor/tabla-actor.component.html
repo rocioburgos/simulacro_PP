@@ -1,0 +1,15 @@
+<div class="form-group">
+    <label for="country">Seleccione un pais</label>
+    <select class="form-control form-control-lg"  
+    [(ngModel)]="opcionSeleccionado" (change)="capturar()"
+    
+    >
+      <option value="">Elija...</option>
+      <option  [value]="actor.doc_id"
+       *ngFor="let actor of actores " 
+        >
+  {{actor.nombre }}, {{actor.apellido}}
+      </option>
+    </select>
+   
+  </div>

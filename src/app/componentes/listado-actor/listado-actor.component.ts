@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActoresService } from 'src/app/servicios/actores.service';
 
 @Component({
   selector: 'app-listado-actor',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoActorComponent implements OnInit {
 
-  constructor() { }
+  @Output() onActorElegido: EventEmitter<string> = new EventEmitter();
+  opcionSeleccionado:string='';
+  actores:any[];
+  constructor(private actorSrv:ActoresService ) { }
 
   ngOnInit(): void {
+    this.actorSrv.getAll().subscribe((res) => {
+      this.actores = res; 
+    });
+
+  }  
+
+  mostrarPeliculas(actor:any){
+    let respuesta=  this.actores.find(element => element.apellido== actor.apellido && element.nombre == actor.nombre)
+    let fullName= respuesta.nombre+" "+respuesta.apellido;
+   
+    this.onActorElegido.emit(respuesta.email); 
+  }
+
+  mostrarDetalleActor(actor:any){
+
   }
 
 }

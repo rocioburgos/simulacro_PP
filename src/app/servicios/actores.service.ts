@@ -20,5 +20,9 @@ export class ActoresService {
    return this.itemsCollection.add(Object.assign({}, item));
   }
 
+  getAll(){
+    return this.itemsCollection.valueChanges({idField: "doc_id"});
+  }
+
 
 }

@@ -24,7 +24,8 @@ export class AltaActorComponent implements OnInit {
     
     let nuevoActor= new Actor(this.nombre, this.apellido, this.email, this.pais);
     this.actorSrv.addItem(nuevoActor).then((res)=>{
-      if(res.id!=null){
+      console.log(res.id) 
+      if(res.id=='' || res.id== null){
         this.registroOk=false;
       }else{
         this.registroOk= true;
